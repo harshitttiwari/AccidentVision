@@ -1,0 +1,20 @@
+# Python and notebook cache
+__pycache__/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# YOLO/Ultralytics training and prediction outputs
+runs/
+
+# Large model and checkpoint files (GitHub hard limit: 100MB per file)
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Common large media outputs
+*.avi
