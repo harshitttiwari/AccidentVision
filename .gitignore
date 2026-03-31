@@ -7,9 +7,6 @@ __pycache__/
 venv/
 env/
 
-# YOLO/Ultralytics training and prediction outputs
-runs/
-
 # Large model and checkpoint files (GitHub hard limit: 100MB per file)
 *.pt
 *.pth
