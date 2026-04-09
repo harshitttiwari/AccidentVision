@@ -1,6 +1,6 @@
 # AccidentVision
 
-AccidentVision is a YOLO-based traffic incident detection project. The repository now keeps only the source code, configuration, and notebook. The original training and test images, along with generated run artifacts, are no longer committed so the repository stays lightweight.
+AccidentVision is a YOLO-based traffic incident detection project. The repository keeps the source code, configuration, notebook, and the saved training and validation run outputs. The original training and test images are not committed, so the repository stays lighter while still preserving the model results.
 
 ## Project Summary
 
@@ -15,6 +15,8 @@ The notebook trains a YOLOv9e model, evaluates it on the held-out test split, an
 
 - `main.ipynb` for training, validation, and inference
 - `data.yaml` for dataset configuration
+- `runs/detect/train1/` for saved training artifacts
+- `runs/detect/val2/` for saved validation artifacts
 - `README.md`
 
 ## Dataset Configuration
@@ -68,7 +70,12 @@ This makes the notebook a complete end-to-end pipeline for training, testing, an
 
 ## Saved Outputs
 
-The repository does not keep generated run artifacts. Train and validation outputs should be recreated locally when needed.
+The repository includes the generated run artifacts again, mainly under:
+
+- `runs/detect/train1/` for the training curves, batch previews, and `results.csv`
+- `runs/detect/val2/` for validation plots and `predictions.json`
+
+These folders provide the trained model outputs without requiring a fresh run.
 
 ## How To Run
 
@@ -82,4 +89,4 @@ Then open `main.ipynb` and execute the cells in order.
 
 ## Status
 
-The repository has been trimmed to source code and configuration only. The dataset images and generated outputs are no longer part of the repository.
+The repository now includes the code, notebook, configuration, and the saved train and validation outputs. The dataset images are still excluded.
