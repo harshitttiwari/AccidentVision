@@ -1,71 +1,35 @@
 # AccidentVision
 
-AccidentVision is a computer vision project for traffic incident detection using Ultralytics YOLO.
-The model is trained to classify two object categories:
+AccidentVision is a YOLO-based traffic incident detection project. The repository now keeps only the source code, configuration, and notebook. The original training and test images, along with generated run artifacts, are no longer committed so the repository stays lightweight.
+
+## What Is Included
+
+- `main.ipynb` for training, validation, and inference
+- `data.yaml` for dataset configuration
+- `README.md`
+
+## Dataset Configuration
+
+`data.yaml` defines two classes:
 
 - accident
 - non-accident
 
-## What I Have Completed
-
-- Prepared a custom dataset split into train, validation, and test sets.
-- Configured dataset metadata in `data.yaml` with two classes.
-- Trained a YOLOv9e model using the Ultralytics pipeline.
-- Saved training artifacts, curves, confusion matrices, and best weights.
-- Evaluated the trained model on the test split.
-- Ran video inference and exported prediction results.
-
-## Project Structure
-
-```text
-Acidental/
-	data.yaml
-	main.ipynb
-	yolov9e.pt
-	train/
-	valid/
-	test/
-	runs/detect/
-		train1/
-		val2/
-		predict/
-```
-
-## Dataset Configuration
-
-The project uses:
-
-- Number of classes: 2
-- Class names: accident, non-accident
-- Train images: `train/images`
-- Validation images: `valid/images`
-- Test images: `test/images`
-
-## Training and Evaluation Highlights
-
-From `runs/detect/train1/results.csv`:
-
-- Final precision (B): 0.78298
-- Final recall (B): 0.74298
-- Final mAP@0.50 (B): 0.82092
-- Final mAP@0.50:0.95 (B): 0.60247
-
-Generated artifacts include:
-
-- PR and F1 curves
-- Confusion matrices (raw and normalized)
-- Label visualizations
-- Train and validation prediction previews
-- Best model checkpoint at `runs/detect/train1/weights/best.pt`
+The dataset image folders are not stored in this repository. If you want to retrain the model, point `data.yaml` to your local dataset paths and generate the outputs locally.
 
 ## Notebook Workflow
 
-The notebook `main.ipynb` performs:
+The notebook `main.ipynb` currently:
 
-1. Model training with YOLOv9e.
-2. Loading the trained best checkpoint.
-3. Test split validation and metric reporting.
-4. Video inference with saved outputs in `runs/detect/predict*`.
+1. Loads `yolov9e.pt`.
+2. Trains the model on the local dataset.
+3. Loads the best checkpoint generated during training.
+4. Runs validation and saves results locally.
+5. Runs inference and writes outputs locally.
+
+## Saved Outputs
+
+The repository does not keep generated run artifacts. Train and validation outputs should be recreated locally when needed.
 
 ## How To Run
 
@@ -75,19 +39,8 @@ Install dependencies:
 pip install ultralytics
 ```
 
-Run the full pipeline from the notebook:
-
-- Open `main.ipynb`
-- Execute cells sequentially to train, validate, and run inference
-
-Or run from Python scripts/terminal using the same Ultralytics calls used in the notebook.
+Then open `main.ipynb` and execute the cells in order.
 
 ## Status
 
-This project is implemented end-to-end:
-
-- Dataset configured
-- Model trained
-- Metrics generated
-- Inference tested on video
-- Artifacts and run outputs saved under `runs/`
+The repository has been trimmed to source code and configuration only. The dataset images and generated outputs are no longer part of the repository.
